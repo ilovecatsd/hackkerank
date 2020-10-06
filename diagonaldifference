@@ -1,0 +1,35 @@
+int diagonalDifference(int arr_rows, int arr_columns, int** arr) 
+{
+    
+    int matrix_size;
+    int sumLeft = 0;
+    int sumRight = 0;
+    int total = 0;
+    matrix_size = arr_columns = arr_rows;
+
+    // input number of rows and columns
+    scanf("%d\n",&matrix_size);
+    // design the matrix 
+    for(int i = 0; i < arr_rows;i++ )
+    {
+        for(int j = 0; j < arr_columns; j++)
+        {
+            scanf("%d ",&arr[i][j]);
+    }
+    }
+
+
+    for(int m = 0; m < matrix_size; m++)
+    {
+          sumLeft += arr[m][m];
+
+        }
+        for(int n = 0; n < matrix_size; n++)
+        {
+            sumRight += arr[n][matrix_size-n-1];
+          
+        }
+        
+    total = abs(sumLeft - sumRight);
+   return total;
+}
